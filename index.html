@@ -1,90 +1,25 @@
 <!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Project-Cyan.com</title>
-    <!-- Cargamos el archivo Javascript del juego -->
-    <script src="js/lightCyan.js"></script>
-    <script>
-            window.onload = function () {
-                lightCyan.setCanvas("canvas");
-                lightCyan.setFps(24);
- 
-                lightCyan.addGameObject("rectangulo", function () {
- 
-                    var nAxisX = 10;
-                    var nAxisY = 10;
-                    var nWidth = 25;
-                    var nHeight = 25;
-                    var nSpeed = 5;
- 
-                    var bMoveRight = false;
-                    var bMoveLeft = false;
-                    var bMoveUp = false;
-                    var bMoveDown = false;
- 
-                    return {
-                        update : function (canvas) {
- 
-                            if (bMoveRight === true) {
-                                nAxisX += nSpeed;
-                            }
-                            if (bMoveLeft === true) {
-                                nAxisX -= nSpeed;
-                            }
-                            if (bMoveUp === true) {
-                                nAxisY -= nSpeed;
-                            }
-                            if (bMoveDown === true) {
-                                nAxisY += nSpeed;
-                            }
-                        },
-                        draw : function (canvas) {
-                            canvas.bufferContext.beginPath();
-                            canvas.bufferContext.rect(nAxisX, nAxisY, nWidth, nHeight);
-                            canvas.bufferContext.fillStyle = "#000";
-                            canvas.bufferContext.closePath();
-                            canvas.bufferContext.fill();
-                        },
-                        keydown : function (nKeyCode) {
-                            if (nKeyCode === 39) {
-                                bMoveRight = true;
-                            }
-                            if (nKeyCode === 37) {
-                                bMoveLeft = true;
-                            }
-                            if (nKeyCode === 38) {
-                                bMoveUp = true;
-                            }
-                            if (nKeyCode === 40) {
-                                bMoveDown = true;
-                            }
-                        },
-                        keyup : function (nKeyCode) {
-                            if (nKeyCode === 39) {
-                                bMoveRight = false;
-                            }
-                            if (nKeyCode === 37) {
-                                bMoveLeft = false;
-                            }
-                            if (nKeyCode === 38) {
-                                bMoveUp = false;
-                            }
-                            if (nKeyCode === 40) {
-                                bMoveDown = false;
-                            }
-                        }
-                    };
-                });
- 
-                lightCyan.startGame();
-            };        
-        </script>
+	<meta charset="UTF-8">
+	<title>Project-Cyan.com</title>
+	<!-- Cargamos el archivo Javascript del juego -->
+	<script src="js/lightCyan.0.2.js"></script>
+	<script src="js/modules/fps.js"></script>
+	<script src="js/game_objects/rectangle.js"></script>
+	<script>
+		window.onload = function () {
+			lightCyan.setCanvas("canvas");
+			lightCyan.setFps(24);
+
+			lightCyan.startGame();
+		};		
+	</script>
 </head>
 <body>
-<p>Utilizar flechas del teclado para mover</p>
-    <canvas id="canvas" width="500" height="400" style="border:1px solid #000;">
-        <p>Explorador no compatible</p>
-    </canvas>
+	<p>Utilizar flechas del teclado para mover</p>
+	<canvas id="canvas" width="500" height="400" style="border:1px solid #000;">
+		<p>Explorador no compatible</p>
+	</canvas>
 </body>
 </html>
