@@ -24,7 +24,7 @@ lightCyan.addModule("fps", function (sandbox) {
 			oBuffer.save();
 			oBuffer.fillStyle = '#000';
 			oBuffer.font = 'bold 12px sans-serif';
-			oBuffer.fillText('FPS: ' + currentFps + '/' + sandbox.settings.fps, 10, 15);
+			oBuffer.fillText('FPS: ' + currentFps, 10, 15);
 			oBuffer.restore();
 			frameCount += 1;
 
