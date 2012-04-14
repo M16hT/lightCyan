@@ -4,7 +4,6 @@
 		oModules = {},
 		aGameObjects = [],
 		aToRemove = [],
-		nFps = 24,
 		nDrawInterval = 0,
 		oCanvas = {
 			main : null,
@@ -28,9 +27,7 @@
 				oSandbox = {
 					meeting : oMeeting,
 					canvas : oCanvas,
-					settings : {
-						fps : nFps
-					}
+					settings : {}
 				};
 
 			// Build Modules.
@@ -48,14 +45,15 @@
 			}
 		},
 		startGame : function () {
-
 			oMeeting.speak({
 				message : "#start#",
 				data : null
 			});
-
-			nDrawInterval = 1 / nFps * 1000;
-			setInterval(fpGameInterval, nDrawInterval);
+			oPreStart.animateGame();
+		},
+		animateGame : function () {
+			requestAnimationFrame(oPreStart.animateGame);
+			fpGameInterval();
 		}
 	};
 
@@ -161,11 +159,6 @@
 
 	// Métodos públicos.
 	window.lightCyan = {
-		setFps : function (nNewFps) {
-			if (typeof nNewFps === 'number') {
-				nFps = nNewFps;
-			}
-		},
 		setCanvas : function (sCanvasId) {
 			var oMainCanvas;
 			if (typeof sCanvasId === 'string') {

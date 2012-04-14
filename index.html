@@ -4,13 +4,14 @@
 	<meta charset="UTF-8">
 	<title>Project-Cyan.com</title>
 	<!-- Cargamos el archivo Javascript del juego -->
+	<!-- Request animation frame polyfill -->
+	<script src="js/libs/rAF/rAF.js"></script>
 	<script src="js/lightCyan.0.2.js"></script>
 	<script src="js/modules/fps.js"></script>
 	<script src="js/game_objects/rectangle.js"></script>
 	<script>
 		window.onload = function () {
 			lightCyan.setCanvas("canvas");
-			lightCyan.setFps(24);
 
 			lightCyan.startGame();
 		};		
